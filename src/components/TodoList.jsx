@@ -1,23 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-export const TodoList = () => {
+const TodoList = ({ tasks, onToggleComplete, onDeleteTask }) => {
   return (
-    <div className='todoList'>
-        <div className="todos">
-            <div className="todo">
-                <div className="todoText">
-                    <span>プログラミング</span>
-                </div>
-                <div className="icons">
-                    <button>
-                    <i class="fa-solid fa-check"></i>
-                    </button>
-                    <button>
-                    <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-  )
-}
+    <ul>
+      {tasks.map((task, index) => (
+        <li key={index} style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+          <span onClick={() => onToggleComplete(index)}>{task.text}</span>
+          <button onClick={() => onDeleteTask(index)}>削除</button>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+export default TodoList;

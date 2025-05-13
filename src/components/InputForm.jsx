@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-export const InputForm = () => {
+const InputForm = ({ onAddTask }) => {
+  const [task, setTask] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (task.trim()) {
+      onAddTask(task);
+      setTask('');
+    }
+  };
+
   return (
-    <div className='inputForm'>
-        <form>
-            <input type="text" />
-            <button>
-                <i class="fa-solid fa-square-plus"></i>
-            </button>
-        </form>
-    </div>
-  )
-}
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+        placeholder="タスクを入力してください"
+      />
+      <button type="submit">追加</button>
+    </form>
+  );
+};
+
+export default InputForm;
