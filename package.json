@@ -17,7 +17,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "preview": "serve -s build"
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +41,5 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   },
-  "homepage": "https://gel-silica.github.io/TODOAPP"
+  "homepage": "https://gel-silica.github.io/TODOAPP/"
 }
